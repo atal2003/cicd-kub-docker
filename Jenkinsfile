@@ -7,7 +7,7 @@ pipeline {
     }
 */
     environment {
-        registry = "imranvisualpath/vproappdock"
+        registry = "atal2003/myimages"
         registryCredential = 'dockerhub'
     }
 
