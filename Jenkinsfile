@@ -80,7 +80,13 @@ pipeline {
 	
 	
 	}
-steps {
+stage('CODE ANALYSIS with SONARQUBE') {
+
+            environment {
+                scannerHome = tool 'mysonar'
+            }
+
+            steps {
                 withSonarQubeEnv('sonar-pro') {
                     sh '''${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=vprofile \
                    -Dsonar.projectName=vprofile-repo \
@@ -96,7 +102,7 @@ steps {
                     waitForQualityGate abortPipeline: true
                 }
             }
-        
+        }
 
 
         stage('Kubernetes Deploy') {
