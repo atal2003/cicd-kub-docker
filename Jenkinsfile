@@ -96,7 +96,7 @@ steps {
                     waitForQualityGate abortPipeline: true
                 }
             }
-        }
+        
 
 
         stage('Kubernetes Deploy') {
